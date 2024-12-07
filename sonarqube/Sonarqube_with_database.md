@@ -43,8 +43,8 @@ SonarQube is an open-source static testing analysis software, it is used by deve
   ```
 `check point`: You should see postgres is running on 5432
 
-
-
+netstat -tuln -----------Using netstat Command (For Older Systems)
+ss -tuln    ---------------Using ss Command (Preferred for Modern Systems)
 apt install net-tools
 
 `Source: https://docs.sonarqube.org/latest/requirements/requirements/`
@@ -123,11 +123,15 @@ apt install net-tools
   systemctl daemon-reload 
   systemctl start sonarqube.service 
   ```
+final and check
+aften run sonarqube  and quality check done 
+checking data base
 
+sudo -u postgres psql
+\c sonarqube                             -----connect databse
 
-## 🧹 CleanUp  
-
-   Stop sonarqube services and delete the instance
+SELECT * FROM projects;
+SELECT * FROM issues WHERE project_uuid='your_project_id';
 
  ## Unable to access Sonarqube from browser? 
 
@@ -137,12 +141,4 @@ apt install net-tools
  4. use instance which has atleast 2 GB of RAM
  
 
-   
-## 🔗 My Profile
-[![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://www.udemy.com/user/ar-shankar/)  
-[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/ravdsun/)
-
-
-  ### 💡 Help/Suggestions or 🐛 Bugs
-
-Thank you for your interest in contributing to our project. Whether it is a bug report, new feature, correction, or additional documentation or solutions, we greatly value feedback and contributions from our community. [Start here](/issues)   
+  
